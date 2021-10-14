@@ -1,13 +1,19 @@
 #include "struct.h"
 
-void find_first_structure(struct music_comp *buf, int n) {
+int find_first_structure(struct music_comp *buf, int n) {
+  if (n == 0) {
+    printf("Enter non-zero nubmer!");
+    return -1;
+  }
   FILE *output = NULL;
   output = fopen("../base.tsv", "r");
+  if (output == NULL) return -1;
   for (int i = 0; i < n; i++) {
     fscanf(output, "%20s%d%d%d", buf->name, &(buf->dur_min), &(buf->dur_sec),
            &(buf->bpm));
   }
   fclose(output);
+  return 0;
 }
 
 bool duration(int dur_min, int dur_sec, int dur_min_sample,

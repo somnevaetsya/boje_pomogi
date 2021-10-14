@@ -11,7 +11,7 @@ struct music_comp {
   int bpm;
 };
 
-void find_first_structure(struct music_comp *buf, int n);
+int find_first_structure(struct music_comp *buf, int n);
 void print_other_structures(int n, 
 struct music_comp *first);
 bool bpm(int bpm,

@@ -12,8 +12,9 @@ int main(void) {
     scanf("%19s", s);
   }
   n = atoi(s);
-          struct music_comp *buf = (struct music_comp*)malloc(sizeof(struct music_comp));
-  find_first_structure(buf, rand() % (10000 - 0 + 1));
+  struct music_comp *buf = (struct music_comp*)malloc(sizeof(struct music_comp));
+  if (find_first_structure(buf, rand() % (10000 - 0 + 1)) == -1)
+  return 0;
   print_other_structures(n, buf);
   printf("End of compilation\n");
   free(buf);
