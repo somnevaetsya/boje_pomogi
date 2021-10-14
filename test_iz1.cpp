@@ -23,9 +23,14 @@ TEST(FIB_TEST, Assert_8) { EXPECT_TRUE(bpm(48, 50) && duration(5, 7, 5, 7)); }
 
 TEST(FIB_TEST, Assert_9) { EXPECT_EQ(find_first_structure(buf, 0), -1); }
 
-TEST(FIB_TEST, Assert_10) { EXPECT_FALSE(bpm(2, 5)); }
+TEST(FIB_TEST, Assert_10) { EXPECT_EQ(print_other_structures(0, buf), -1); }
+
+TEST(FIB_TEST, Assert_11) { EXPECT_FALSE(bpm(2, 5)); }
+
+
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
+  free(buf);
   return RUN_ALL_TESTS();
 }

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <errno.h>
 
 struct music_comp {
   char name[20];
@@ -12,7 +13,7 @@ struct music_comp {
 };
 
 int find_first_structure(struct music_comp *buf, int n);
-void print_other_structures(int n, 
+int print_other_structures(int n, 
 struct music_comp *first);
 bool bpm(int bpm,
  int bpm_sample);

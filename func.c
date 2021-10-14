@@ -32,9 +32,14 @@ bool bpm(int bpm, int bpm_sample) {
     return false;
 }
 
-void print_other_structures(int n, struct music_comp *first) {
+int print_other_structures(int n, struct music_comp *first) {
+  if (n == 0) {
+    printf("Enter non-zero nubmer!");
+    return -1;
+  }
   FILE *output = NULL;
   output = fopen("../base.tsv", "r");
+  if (output == NULL) return -1;
   int i = 1;
   struct music_comp *buf = (struct music_comp*)malloc(sizeof(struct music_comp));
   while (fscanf(output, "%20s%d%d%d", buf->name, &(buf->dur_min), &(buf->dur_sec),
@@ -55,4 +60,5 @@ void print_other_structures(int n, struct music_comp *first) {
     printf("There are not enough composition in database...Sorry..");
   free(buf);
   fclose(output);
+  return 0;
 }
